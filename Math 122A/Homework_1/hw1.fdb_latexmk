@@ -1,0 +1,13 @@
+# Fdb version 3
+["pdflatex"] 1612563556 "hw1.tex" "hw1.pdf" "hw1" 1612563556
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls" 1544567569 19933 3097d1b31d3c45dc957096f554529032 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/base/size10.clo" 1544567569 8294 6d6e23d5169c0d89d173f6c7e08a005a ""
+  "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1557092114 35484 cb1661360667bf4db662a8895053b554 ""
+  "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
+  "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
+  "hw1.aux" 1612563550 8 a94a2480d3289e625eea47cd1b285758 ""
+  "hw1.tex" 1612563550 7356 008a8212cedacf8991ff77850c04410e ""
+  "jacksonmath.sty" 0 -1 0 ""
+  (generated)
+  "hw1.pdf"
+  "hw1.log"

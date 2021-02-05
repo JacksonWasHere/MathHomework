@@ -1,0 +1,233 @@
+\documentclass{article}
+
+\usepackage{jacksonmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+
+\begin{document}
+  \section{3.6 Problems: 6, 8, 12, 15}
+  \begin{enumerate}
+    \item[6]
+      \begin{enumerate}[label=(\roman*)]
+        \item $\sum z^n/n$\\
+        We can use this equation to find the radius of convergence.
+        \begin{align*}
+          1/R&=\lim\sup|1/n|^{1/n}\\
+          &=\lim\sup e^{1/n\ln(1/n)}\\
+          &=\lim\sup e^0\\
+          &=1\\
+          \implies R&=1
+        \end{align*}
+        \item $\sum z^n/n!$\\
+        \begin{align*}
+          1/R&=\lim\sup|1/n!|^{1/n}\\
+          &=\lim\sup e^{ln(1/n!)/n}\\
+          &=\lim\sup e^{-ln(n!)/n}\\
+          &=0\\
+          \implies R&=\infty
+        \end{align*}
+        \item $\sum n!z^n$\\
+        \begin{align*}
+          1/R&=\lim\sup|n!|^{1/n}\\
+          &=\lim\sup e^{\ln(n!)/n}\\
+          &=e^\infty\\
+          \implies R&=0
+        \end{align*}
+        \item $\sum n^kz^n$\\
+        \begin{align*}
+          1/R&=\lim\sup |n^k|^{1/n}\\
+          &=\lim\sup |n|^{k/n}\\
+          &=\lim\sup e^{k\ln(n)/n}\\
+          &=e^{k\lim\sup\ln(n)/n}\\
+          &=e^{k\cdot 0}\\
+          &=1\\
+          \implies R&=1
+        \end{align*}
+        \item $\sum z^{n!}$\\
+        Consider the series $\sum z^n$. It has radius of convergence $R=1$. If we let $|z|<1$ then clearly $z^{n!}\leq z^n$, so the series will converge. If we let $|z|>1$ then we get $z^{n!}\geq z^n$, which means that the series diverges.
+      \end{enumerate}
+    \item[8]
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          first we shall create a formula for this series.
+          \begin{align*}
+            \sum_{n=1}^\infty (-1)^{n+1}\frac{z^{2n-1}}{(2n-1)!}
+          \end{align*}
+          now we can try to find a radius of convergence.
+          \begin{align*}
+            1/R&=\lim\sup |1/(2n-1)!|^{1/n}\\
+            &=\lim\sup e^{-\ln((2n-1)!)/n}\\
+            &=e^{-\infty}\\
+            &=0\\
+            \implies R&=\infty
+          \end{align*}
+        \item
+          \[\sum_{n=0}^\infty \frac{z^{2n}}{(2n)!}\]
+          The radius of convergence would be given by
+          \begin{align*}
+            1/R&=\lim\sup |1/(2n)!|^{1/n}\\
+            &=0\\
+            \implies R&=\infty
+          \end{align*}
+        \item
+          We will use the ratio test to see if the series converges. First let's assume that $a$ is a non negative integer.
+          Then at some point the terms will become 0 because there exists some n such that $a-n+1=0$.
+          Now we will use the ratio test to check all other cases
+          \begin{align*}
+            &\lim|\frac{(n-1)!a(a-1)\dots(a-n+2)(a-n+1)}{n!a(a-1)\dots(a-n+2)}z|\\
+            &=\lim|\frac{(a-n+1)}{n}z|\\
+            &=\lim|z||\frac{a+1}{n}-1|\\
+            &=|z|
+          \end{align*}
+          so the series will converge when $|z|<1$ for all other values of a.
+      \end{enumerate}
+    \item[12]
+      Assume that for $\sum a_nz^n,\sum b_nz^n,$ and $\sum a_nb_nz^n$ we have $R=1$. let's find the radius of convergence for $\sum a_n^2b_nz^n$:
+      \begin{align}
+        1/R&=\lim\sup|a_n^2b_n|^{1/n}\\
+        &=\lim\sup|a_nb_n|^{1/n}\cdot\lim\sup|a_n|^{1/n}\\
+        &=1\cdot1
+      \end{align}
+      The implication $(2)\implies(3)$ is true because each term is $1/R$ for the series mentioned above. If we switch $a_n$ and $b_n$ in this proof then it proves the other case. Thus $\sum a_n^2b_nz^n,\sum a_nb_n^2z^n$ have radius of convergence 1.
+    \item[15]%a0z0,a1z1,a2z2,a3z3,a1z4,a2z5,a6z6
+      We will assume that $|z|<1$ and $\sum_{n=0}^\infty a_nz^n=p(z)/q(z)$. Let's create $k$ different sequences with constant coefficients. Each of these series is a convergent geometric series. Geometric series converge:
+      \begin{align*}
+        a_0\sum_{n=0}^\infty z^{nk}&=\frac{a_0}{1-z}\\
+        a_1\sum_{n=0}^\infty z^{1+nk}&=\frac{a_1}{1-z}\\
+        &\vdots\\
+        a_{k-1}\sum_{n=0}z^{nk+k-1}&=\frac{a_{nk+k-1}}{1-z}
+      \end{align*}
+      When we add these all back together we get a rational function.
+      \begin{align*}
+        \sum_{n=0}^\infty a_nz^n&=\sum_{n=0}^k\frac{a_n}{1-z}\\
+        &=\sum_{n=0}^k\frac{a_n+a_nz}{1-z^2}=p(z)/q(z)\\
+        p(z)&=\sum_{n=0}^k a_n+a_nz\tag{some constant}\\
+        q(z)&=1-z\\
+      \end{align*}
+      Now we must figure out where the zeros are for $p,q$.
+      \begin{align*}
+        p(z)=1-z&=0\\
+        \implies z&=1
+      \end{align*}
+      \begin{align*}
+        q(z)=0&=\sum_{n=0}^k a_n(1+z)\\
+        &=(1+z)\sum_{n=0}^k a_n\\
+        \implies z&=-1
+      \end{align*}
+      So the zeros are on the unit circle. Now let's try a slight variation to this problem. Instead of $a_n=a_{n+k}$ let's let $a_{n+k}=a_n/k$. We can still split it into different series:
+      \begin{align*}
+        a_0\sum_{n=0}^\infty \frac{z^{nk}}{k^n}\\
+        a_1\sum_{n=0}^\infty \frac{z^{1+nk}}{k^n}\\
+        &\vdots\\
+        a_{k-1}\sum_{n=0}\frac{z^{nk+k-1}}{k^n}
+      \end{align*}
+      Each of these can actually be manipulated into geometric series.
+      \begin{align*}
+        a_{k-1}\sum_{n=0}^\infty\frac{z^{nk+k-1}}{k^n}&=a_{k-1}\sum_{n=0}^\infty\frac{z^{nk}z^{k-1}}{k^n}\\
+        &=a_{k-1}z^{k-1}\sum_{n=0}^\infty\left(\frac{z^k}{k}\right)^n\\
+        &=\frac{a_{k-1}z^{k-1}}{1-(z^k/k)}
+      \end{align*}
+      They are convergent for all $z$ such that $|z^k/k|<1$
+  \end{enumerate}
+  \section{4.7 Problems: 2, 4, 6, 7, 9}
+  \begin{enumerate}
+    \item[2] Find the derivative
+      \begin{enumerate}[label=(\roman*)]
+        \item $f(z)=z^2+2z$\\
+          \begin{align*}
+            f'(z)=2z+2
+          \end{align*}
+        \item $f(z)=1/z$\\
+          We will use the quotient rule. let $h(z)=1,g(z)=z$ which would mean $h'(z)=0,g'(z)=1$
+          \begin{align*}
+            \left(\frac{h(z)}{g(z)}\right)'&=\frac{h'(z)g(z)-h(z)g'(z)}{g^2(z)}\\
+            &=\frac{-1}{z^2}
+          \end{align*}
+        \item $f(z)=z^3+z^2$
+          \begin{align*}
+            f'(z)=3z^2+2z
+          \end{align*}
+      \end{enumerate}
+    \item[4]
+      Let
+      \[f_n(z)=\left(1+\frac{z}{n}\right)^n\]
+      We will solve using induction. Base Case:
+      \[f_2(z)=(1+z/2)^2\implies f_2'(z)=1+z/2\]
+      which matches $f'_2(z)=f_1(z/2)=1+z/2$. Now we can move onto induction by letting
+      \[f_n'(z)=f_{n-1}\left(\frac{(n-1)z}{n}\right)\]
+      We need to get
+      \[f_{n+1}'(z)=f_n\left(\frac{nz}{n+1}\right)=\left(1+\frac{z}{n+1}\right)^n\]
+      But we have
+      \[f_{n+1}'(z)=(n+1)\left(1+\frac{z}{n+1}\right)^n*\frac{1}{n+1}\]
+      \[=\left(1+\frac{z}{n+1}\right)^n\]
+      So the property holds.
+    \item[6] %Unfin
+      Suppose we have a polynomial $f(z)$. If we take the the conjugate of it we get
+      \begin{align*}
+        \overline{f(\bar{z})}&=\overline{\sum a_n\bar{z}^n}\\
+        &=\sum \overline{a_n\overline{z^n}}\\
+        &=\sum a_nz^n\\
+        &=f(z)
+      \end{align*}
+      So the derivative of g would be $g'(z)=\sum a_nnz^{n-1}$. Now we consider $h(z)=\overline{f(z)}$. Suppose $f'(0)\neq0$. Let's let $f(z)=z$. If we choose a real $z_0$ then
+      \begin{align*}
+        \lim\frac{\bar{z}-\bar{z_0}}{z-z_0}=1
+      \end{align*}
+      But if we instead choose an imaginary $z_0$ we get
+      \[\lim\frac{-z+z_0}{z-z_0}=-1\]
+      Now let's consider when $f'(0)=0$
+      \begin{align*}
+        \lim_{z\to0}\frac{\overline{\sum a_nz^n}}{z}&=\frac{\sum a_n\bar{z}^n}{z}=0\\
+      \end{align*}
+      So it is differentiable at the origin when $f'(0)=0$
+    \item[7]
+      \begin{enumerate}
+        \item
+          \begin{align*}
+            f(z)&=\frac{1}{x+iy}\\
+            &=\frac{x-iy}{x^2-y^2}\\
+            &=\frac{x}{x^2-y^2}-i\frac{y}{x^2-y^2}\\
+          \end{align*}
+          Now we need to find the partial derivatives
+          \begin{align*}
+            u(x,y)&=\frac{x}{x^2-y^2}\\
+            \pdiff{u}{x}&=\frac{y^2+x^2}{2x^2y^2-x^4-y^4}\\
+            \pdiff{u}{y}&=\frac{2yx}{x^4-2x^2y^2+y^4}\\
+            v(x,y)&=\frac{y}{x^2-y^2}\\
+            \pdiff{v}{x}&=\frac{-2yx}{x^4-2x^2y^2+y^4}\\
+            \pdiff{v}{y}&=\frac{y^2+x^2}{2x^2y^2-x^4-y^4}\\
+          \end{align*}
+          This satisfies the Cauchy-Riemann equation.
+        \item
+          \begin{align*}
+            f(z)=|z|&=\sqrt{x^2+y^2}\\
+            u(x,y)&=\sqrt{x^2+y^2}\\
+            \pdiff{u}{x}&=\frac{2x}{\sqrt{x^2+y^2}}\tag{1}\\
+            \pdiff{u}{y}&=\frac{2y}{\sqrt{x^2+y^2}}\tag{2}\\
+            v(x,y)&=0
+          \end{align*}
+          The partial derivatives of $v(x,y)$ are both zero. If we want (1)=0 then we need x=0. To have (2)=0 we need y=0. But when we let x,y=0 neither function is defined. So it is never differentiable.
+        \item
+          \begin{align*}
+            f(z)=\bar{z}&=x-iy\\
+            u(x,y)&=x\\
+            \pdiff{u}{x}=1\\
+            \pdiff{u}{y}=0\\
+            v(x,y)&=y\\
+            \pdiff{v}{x}=0\\
+            \pdiff{v}{y}=1
+          \end{align*}
+          This does not satisfy the Cauchy-Riemann equation anywhere.
+      \end{enumerate}
+    \item[9]
+      \begin{align*}
+        f(z)&=\frac{x^3-y^3}{x^2+y^2}+i\frac{x^3+y^3}{x^2+y^2}\\
+        \pdiff{u}{x}&=\frac{3x^4+3x^2y^2-2x^4+2xy^3}{(x^2+y^2)^2}\\
+        \pdiff{u}{y}&=\frac{-3y^2(x^2+y^2)-2y(x^3-y^3)}{(x^2+y^2)^2}\\
+        \pdiff{v}{x}&=\frac{3x^2(x^2+y^2)-2x(x^3+y^3)}{(x^2+y^2)^2}\\
+        \pdiff{v}{y}&=\frac{3y^2x^2+3y^4-2yx^3-2y^4}{(x^2+y^2)^2}\\
+      \end{align*}
+      These satisfy the Cauchy-Reimann equations because they approach 0 at the origin but they are not actually defined there.
+  \end{enumerate}
+\end{document}
