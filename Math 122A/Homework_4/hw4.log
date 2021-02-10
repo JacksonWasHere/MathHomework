@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 FEB 2021 14:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 FEB 2021 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -356,28 +356,71 @@ Overfull \hbox (61.36223pt too wide) detected at line 135
 []
  []
 
-[4] (./hw4.aux) ) 
+
+Overfull \hbox (135.67891pt too wide) detected at line 152
+[]
+ []
+
+[4]
+Overfull \hbox (130.34596pt too wide) detected at line 165
+[]
+ []
+
+
+Overfull \hbox (51.23892pt too wide) detected at line 170
+[]
+ []
+
+
+Overfull \hbox (13.97612pt too wide) detected at line 176
+[]
+ []
+
+
+Overfull \hbox (84.99168pt too wide) detected at line 182
+[]
+ []
+
+
+Overfull \hbox (10.11385pt too wide) detected at line 187
+[]
+ []
+
+[5]
+Overfull \hbox (20.42455pt too wide) detected at line 205
+[]
+ []
+
+
+Overfull \hbox (2.54666pt too wide) in paragraph at lines 212--213
+[]\OT1/cmr/m/n/10 We must use the ba-sic for-mula. Plug-ging in the con-tour we
+ get $[] =
+ []
+
+[6] [7] (./hw4.aux) ) 
 Here is how much of TeX's memory you used:
  5433 strings out of 492616
  76885 string characters out of 6129482
- 174526 words of memory out of 5000000
+ 175531 words of memory out of 5000000
  9254 multiletter control sequences out of 15000+600000
  5944 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,45p,822b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb>
-Output written on hw4.pdf (4 pages, 92326 bytes).
+ 41i,12n,45p,822b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
+fb>
+Output written on hw4.pdf (7 pages, 121091 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

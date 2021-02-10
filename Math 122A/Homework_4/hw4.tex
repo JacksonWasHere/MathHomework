@@ -146,9 +146,110 @@
             \sum_{m=0}^n\cos(mx)+i\sin(mx)&=\sum_{m=0}^ne^{imx}\\
             &=\sum_{m=0}^n\left(e^{ix}\right)^m\\
             &=\frac{1-e^{ix(n+1)}}{1-e^{ix}}\\
-            &=\frac{1-\cos(x(n+1))-i\sin(x(n+1))}{1-\cos(x)-i\sin(x)}\\
-            &=
+            &=\frac{(1-e^{ix(n+1)})(1-e^{-ix})}{(1-e^{ix})(1-e^{-ix})}\\
+            &=\frac{1-e^{-ix}-e^{ixn+ix}+e^{ixn}}{2-2\cos(x)}\\
+            &=\frac{1-\cos(x)+i\sin(x)-\cos(xn+x)-i\sin(xn+x)+\cos(xn)+i\sin(xn)}{2-2\cos(x)}\\
+          \end{align*}
+          This gives us
+          \[\sum_{m=0}^n\cos(mx)=\frac{1-\cos(x)-\cos(nx+x)+\cos(nx)}{2-2\cos(x)}\]
+        \item
+          From the previous problem we have:
+          \[\sum_{m=0}^n\sin(mx)=\frac{\sin(x)+\sin(nx)-\sin(nx+x)}{2-2\cos(x)}\]
+        \item
+          \begin{align*}
+            \sum_{m=1}^n\cos((2m-1)x)+i\sin((2m-1)x)&=\sum_{m=0}^ne^{2ixm}e^{-ix}\\
+            &=e^{-ix}\sum_{m=0}^n\left(e^{i(2x)}\right)^m\\
+            &=e^{-ix}\frac{1-e^{-i2x}-e^{i2xn+i2x}+e^{i2xn}}{2-2\cos(2x)}+e^{-ix}\\
+            &=\frac{e^{-ix}-e^{-i3x}-e^{i2xn+ix}+e^{i2xn-ix}}{2-2\cos(2x)}+e^{-ix}\\
+            \sum_{m=0}^n\cos((2m-1)x)&=\frac{\cos(x)-\cos(3x)-\cos(2xn+x)+\cos(2xn-x)}{2-2\cos(2x)}+\cos(x)
+          \end{align*}
+        \item
+          By the previous problem:
+          \begin{align*}
+            \sum_{m=1}^n\sin((2m-1)x)=\frac{-\sin(x)+\sin(3x)-\sin(2xn+x)+\sin(2xn-x)}{2-2\cos(2x)}-\sin(x)
+          \end{align*}
+        \item
+          The problem uses $(-1)^n$ as a coefficient. This is constant unlike $(-1)^m$ so we can just multiply it by our previous answer.
+          \begin{align*}
+            \sum_{m=0}^n(-1)^n(\cos(mx)+i\sin(mx))&=(-1)^n\sum_{m=0}^ne^{imx}\\
+            \implies\sum_{m=0}^n(-1)^n\sin(mx)&=(-1)^n\frac{\sin(x)+\sin(nx)-\sin(nx+x)}{2-2\cos(x)}
+          \end{align*}
+        \item
+          \begin{align*}
+            \sum_{m=0}^n\cos(\theta+m\phi)+i\sin(\theta+m\phi)&=e^{i\theta} \sum_{m=0}^ne^{im\phi}\\
+            &=\frac{e^{i\theta}-e^{-i\phi+i\theta}-e^{in\phi+i\phi+i\theta}+e^{in\phi+i\theta}}{2-2\cos(\phi)}\\
+            \sum_{m=0}^n\cos(\theta+m\phi)&=\frac{\cos(\theta)-\cos(\theta-\phi)-\cos(n\phi+\phi+\theta)+\cos(n\phi+\theta)}{2-2\cos(\phi)}
+          \end{align*}
+        \item
+          From the previous problem:
+          \begin{align*}
+            \sum_{m=0}^n\sin(\theta+m\phi)&=\frac{\sin(\theta)-\sin(\theta-\phi)-\sin(n\phi+\phi+\theta)+\sin(n\phi+\theta)}{2-2\cos(\phi)}
           \end{align*}
       \end{enumerate}
+  \end{enumerate}
+  \section{6.14 Problems: 1, 2, 4, 5, 12, 13}
+  \begin{enumerate}
+    \item[1]
+      We have $f(a,b)=a$ and $\gamma(t)=it$ for $t\in[0,1]$
+      \begin{align*}
+        f(\gamma(t))=0\\
+        \int_\gamma re(z)dz=\int_0^1f(\gamma(t))\gamma'(t)dt=0\\
+      \end{align*}
+      \begin{align*}
+        \sigma_1(t)=t&\implies \sigma_1'(t)=1\\
+        \sigma_2(t)=1-t+it&\implies \sigma_2'(t)=-1+i\\
+        \int_{\sigma_1} f(\sigma_1(t))\sigma_1'(t)dt+\int_{\sigma_2}f(\sigma_2(t))\sigma_2'(t)dt&=\int_0^1 tdt+\int_0^1(1-t)(i-1)dt\\
+        &=1/2+\int_0^1i-it-1+tdt\\
+        &=1/2+i(1)-i(1)^2/2-(1)+(1)^2/2\\
+        &=i/2
+      \end{align*}
+    \item[2]
+      We have the contour $\gamma(t)=it$ for $t\in[-1,1]$. We will find the derivative $\gamma'(t)=i$. If we find the magnitude of the contour then $|\gamma(t)|=t$ so we can evaluate the integral
+      \[\int_{\gamma}|z|dz=\int_{-1}^1itdt=\frac{i(1)^2}{2}-\frac{i(-1)^2}{2}=0\]
+      We can take the derivative of the second contour to get $\sigma'(t)=ie^{it}$. We also have $|\sigma(t)|=1$ so we can evaluate the integral
+      \[\int_{\sigma}|\sigma(t)|\sigma'(t)dt=\int_{-\pi/2}^{\pi/2}ie^{it}dt=e^{i(\pi/2)}-e^{i(-\pi/2)}=i-(-i)=2i\]
+    \item[4]
+      We must use the basic formula. Plugging in the contour we get $\frac{1}{z_0+re^{it}-z_0}=e^{-it}/r$. And the derivative is $\gamma'(t)=ire^{it}$ Giving us the integral:
+      \[\int_\gamma \frac{ire^{it}}{re^{it}}dt=\int_{0}^{2n\pi}idt=2in\pi\]
+    \item[5]
+      For all problems we have $\gamma(t)=e^{it}$ and $\gamma'(t)=ie^{it}$.
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          We can solve the integral to get
+          \[\int_{1}^{-1} 1/z^2dz=-1/(-1)-(-1/(1))=2\]
+        \item
+          Plug in the contour
+          \[f(\gamma(t))=e^{-it}\]
+          Then solve the integral
+          \[\int_{0}^{\pi}e^{-it}\cdot ie^{it}dt=i\pi\]
+        \item
+          We will simply take the integral to get
+          \[\int_1^{-1}\cos(z)dz=\sin(-1)-\sin(1)=-2\sin(1)\]
+        \item
+          Simply take the integral
+          \[\int_1^{-1}\sinh(z)dz=\cosh(-1)-\cosh(1)=-2\cosh(1)\]
+        \item
+          We will need a u-substitution
+          \begin{align*}
+            \int_1^{-1}\sin(z)/\cos(z)dz\\
+            u=\cos(z)\implies du=-\sin(z)dz\\
+            \int_1^{-1}\frac{1}{u}du=\ln(\cos(-1))-\ln(\cos(1))=-2\ln(\cos(1))
+          \end{align*}
+        \item
+          We will plug in the contour
+          \[f(e^{it})=e^{(e^{it})^3}=e^{e^{3it}}\]
+          Now we integrate
+          \begin{align*}
+            \int_1^{-1}\sum_{n=0}^\infty \frac{z^{3n}}{n!}dz&=\sum_{n=0}^\infty\int_1^{-1} \frac{z^{3n}}{n!}\\
+            &=\sum_{n=1}^\infty \frac{(-1)^{3n-1}}{n!(3n-1)}-\sum_{n=1}^\infty \frac{(1)^{3n-1}}{n!(3n-1)}
+          \end{align*}
+      \end{enumerate}
+    \item[12]
+      (i) First we must find the length of the contour. Because it is a circle we can just find the perimeter and get $2\pi r$. Suppose we have some $M\st|f(z)|\leq M$. Given some $\epsilon>0$ we will then let $\delta=\frac{\epsilon}{2M\pi}$
+      \begin{align*}
+        |r|<\delta\implies\\
+        \left|\int_{c_r}f(z)dz\right|\leq|2Mr\pi|<\epsilon
+      \end{align*}
+      (ii) We will let the
   \end{enumerate}
 \end{document}
