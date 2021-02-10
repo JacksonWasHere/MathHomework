@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1613000073 "hw4.tex" "hw4.pdf" "hw4" 1613000074
+["pdflatex"] 1613000073 "hw4.tex" "hw4.pdf" "hw4" 1613000353
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -79,8 +79,8 @@
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
   "hw4.aux" 1613000074 368 f5526cba68962509694e31680833e19d "pdflatex"
   "hw4.tex" 1613000073 11401 1cfe5a8f61deebd1a2834514e4a280f2 ""
-  "jacksonmath.sty" 1612648434 1081 b5894e20fb23636a91a4bf02832dadf6 ""
+  "jacksonmath.sty" 1613000342 1081 b5894e20fb23636a91a4bf02832dadf6 ""
   (generated)
-  "hw4.pdf"
   "hw4.log"
+  "hw4.pdf"
   "hw4.aux"
