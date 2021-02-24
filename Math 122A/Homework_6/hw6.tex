@@ -1,0 +1,111 @@
+\documentclass{article}
+
+\usepackage{jacksonmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+
+\begin{document}
+  \section{7.9 Problems: 20, 21, 22}
+  \begin{enumerate}
+    \item[20]
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          With the function $\gamma(t)=2e^{-it}-1$ we must find $\theta$ at the end points. We can see that $\arg(2e^{-i0}-1)=\arg(1)$ so $\theta(0)=0$. Next we get $\arg(2e^{-i2\pi}-1)=\arg(1)$, to make this continuous we must choose $\theta(2\pi)=2\pi$. Thus we get
+          \[\omega(\gamma,1)=\frac{2\pi-0}{2\pi}=1\]
+          Now with $z=3i$, we have $\arg(2e^{-i0}-3i)=\arg(1-3i)$. We also have $\arg(2e^{-i2\pi}-3i)=\arg(1-3i)$. These are the same point and unlike last time they must have the same argument because $\theta$ oscillates while less than $2\pi$. So the winding number is 0.
+        \item
+          Let us consider the path $\gamma(t)=t+i(1-t)$. if we wind around the point $1+i$ we get argument $\pi$ when $t=0$ and $3\pi/2$ when $t=1$. This gives us a winding number of $1/4$.\\
+          Now let $z=-i$. When $t=0$ we get the angle $\pi/2$ and when $t=1$ we get the angle $\pi/4$. So we get winding number $-\pi/4$.\\
+          Let's use the point $z=10i$. The angle when $t=0$ is just $3\pi/2$. When we let $t=1$ then we are at the point $(1,-10)$.
+          \[\tan^{-1}\left(\frac{-10}{1}\right)+2\pi=4.812\]
+          so we get the winding number \[\frac{4.812-3\pi/2}{2\pi}=0.01585\]
+      \end{enumerate}
+    \item[21]
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          \begin{align*}
+            \int_{\gamma}\frac{1}{z}dz&=[\log|te^{-it}|+i\arg(te^{-it})]_\pi^{5\pi}\\
+            &=[\log|t|+i(-t)]_\pi^{5\pi}\\
+            &=(\log(\pi)-\log(5\pi)-i\pi+5i\pi)\\
+            &=4i\pi-\log(5)
+          \end{align*}
+        \item
+          \begin{align*}
+            \int_{\gamma}\frac{1}{z-1}dz&=[\log(-it-1)]_0^1\\
+            &=[\log|-it-1|+i\arg(-it-1)]_0^1\\
+            &=[1/2\log(t^2+1)+i\tan^{-1}(t)+i\pi]_0^1\\
+            &=1/2\log(1^2+1)+i\tan^{-1}(1)-1/2\log(0^2+1)-i\tan^{-1}(0)\\
+            &=1/2\log(2)+i\pi/4
+          \end{align*}
+        \item
+          \begin{align*}
+            \int_{\gamma}\frac{1}{z-1}dz&=[\log(it-1)]_{-1}^1\\
+            &=[\log|it-1|+i\arg(it-1)]_{-1}^1\\
+            &=[1/2\log(t^2+1)+i\tan^{-1}(-t)+i\pi]_{-1}^1\\
+            &=1/2\log(2)+i\tan^{-1}(-1)-1/2\log(2)-i\tan^{-1}(1)\\
+            &=-0.5i
+          \end{align*}
+      \end{enumerate}
+    \item[22]
+      \begin{enumerate}[label=(\roman*)]
+        \item Half circle. $A=0,B=1$
+        \item Donut. $A=0, B=1, C=2$
+        \item Bean Pod. $A=0, B=1, C=2, D=2, E=2$
+        \item Squiggles. $A=0, B=1, C=2, D=1, E=0, F=1$
+      \end{enumerate}
+  \end{enumerate}
+  \section{8.8 Problems: 1,2}
+  \begin{enumerate}
+    \item
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          The origin $(z_*)$ would be a star center of this domain. First let's choose some $z_0\in D$ where $0\neq\im{z_0}$. Alternatively: $z_0=a+bi,b\neq0$. We can then find a line this point from the origin.
+          \begin{align*}
+            \gamma_{z_0}(t)=(t(\re{z_0}-\re{z_*}),t(\im{z_0}-\im{z_*}))=(at,bt),t\in[0,1]
+          \end{align*}
+          We can see that $bt=0$ only when $t=0$, which is $\gamma_{z_0}(0)=(0,0)$. So it never goes through $z=x+0i$ with $|x|\geq1$.\\
+          Now let's choose some $z_1=a+bi\in D$ where $b=0$. In order for this to be in the domain we need $|a|<1$. If we find a line from this point to the origin we get:
+          \begin{align*}
+            \gamma_{z_1}(t)=(at,bt),t\in[0,1]
+          \end{align*}
+          We must check if this is always in bounds. $|at|<|a|<1$ so $(\forall t)\gamma_{z_1}(t)\in D$ so $z_*$ is star center and $D$ is a star domain. Observation: all points such that $z=a+0i,|a|<1$ might be star centers.
+        \item
+          I will prove the origin is a star center. Take any $z=a+bi\in D$ and connect it to the origin. We get the path:
+          \[
+            (at,bt),t\in[0,1]
+          \]
+          We can now see if $(at,bt)$ is always in the domain.
+          \begin{align*}
+            |(at,bt)|=\sqrt{(at)^2+(bt)^2}<\sqrt{a^2+b^2}<1
+          \end{align*}
+          So the origin is a star center and the domain is a star domain. Observation: Any point in this disc is a star center because a line between two points in the disk will still be in the disk.
+        \item
+          This is not a star domain. Let's suppose we choose a point $z_0$ ``inside'' this half circle. We cannot draw a straight line from $z_0$ to a point outside the half circle and above the real axis. For the same reason a star center cannot be outside the half circle and above the real axis. Let's choose a point $z_1$ below the real axis but outside the unit circle. Then $[-z_1,z_1]$ passes through the half circle. If $z_1$ is inside the unit circle then $-2z_1/|z_1|$ is outside the unit circle and cannot connect to $z_1$ by a straight line in the domain.
+        \item
+          This is not a star domain. This domain is in 2 sections that do not shar any common points. So any point from the upper left quadrant cannot be connected to one in the lower right. So it is not a star domain.
+
+      \end{enumerate}
+    \item
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          \[\log(z)\]
+        \item
+          \[\frac{-1}{z}\]
+        \item
+          \begin{align*}
+            \frac{z}{z^2}+\frac{1}{z^2}\implies\log(z)+\frac{-1}{z}
+          \end{align*}
+        \item
+          \begin{align*}
+            \int\sum\frac{ (-1)^nz^{2n-1}}{(2n)!}dz&=\sum\frac{ (-1)^n\int z^{2n-1}dz}{(2n)!}\\
+            &=\sum\frac{ (-1)^nz^{2n}}{(2n+1)!-(2n)!}
+          \end{align*}
+        \item
+          \begin{align*}
+            \int\sum\frac{ (-1)^nz^{2n}}{(2n+1)!}dz&=\sum\frac{ (-1)^n\int z^{2n}dz}{(2n+1)!}\\
+            &=\sum\frac{ (-1)^nz^{2n+1}}{(2n+1)(2n+1)!}
+          \end{align*}
+      \end{enumerate}
+  \end{enumerate}
+\end{document}
