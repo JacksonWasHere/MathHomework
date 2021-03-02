@@ -1,0 +1,352 @@
+\documentclass{article}
+
+\usepackage{jacksonmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+
+\begin{document}
+  \section{8.8 Problems: 3, 4, 6, 7, 8}
+  \begin{enumerate}
+    \item[3]
+      Let's find the sum of the winding numbers for $z=\pm1$.
+      \[w(\gamma,1)=-1\]
+      \[w(\gamma_1,1)=0\]
+      \[w(\gamma_2,1)=1\]
+      \[w(\gamma,-1)=-1\]
+      \[w(\gamma_1,-1)=1\]
+      \[w(\gamma_2,-1)=0\]
+      So the sum is 0. This means that the sum of the integrals would be 0. Hence we have:
+      \begin{align*}
+        \int_{\gamma_1}f+\int_{\gamma_2}f+\int_{\gamma}f=0
+        \implies\int_{\gamma_1}f+\int_{\gamma_2}f=-\int_{\gamma}f
+      \end{align*}
+      This does not come out to the same as the homework asks due to a typo.
+    \item[4]
+      Choose the path $\gamma=e^{it}$ with $t\in[0,2\pi]$. We can take the winding number of this path around the point $z=-1$. This gives us $w(\gamma,z)=1\neq0$ so the domain is not simply connected.\\
+      Suppose the domain $D_0$ is NOT simply connected. That means there is some $z\notin D_0$ where the winding number is not zero. Let's choose the point $z=x+i0$ where $x\leq-1$. In order for the winding number around this point to be non-zero we need a path that goes completely around it. This would require passing through a point $z=a+i0$ where $a<x\leq-1$. But this is not in the domain. The same argument applies for $z=x+i0$ when $x\geq1$ because there are no points to the right of z on the real axis within the domain. So we cannot create a close path around a point outside the domain, hence a winding number of 0.\\
+      The origin is a star domain by the argument from 8.8.1(i). Because the function $\frac{1}{z^2-1}$ is differentiable and in a star domain it also has an antiderivative.
+    \item[6]
+      There are four cases: The inside of $\gamma$ might contain $-i,i$, both, or neither. When it it contains neither $w(\gamma,\pm i)=0$ so $\int_\gamma f=0$ by Thm 8.8.\\
+      Suppose the path $\gamma_1$ only contains i. All paths with the same winding number will be equal (See section 8.6). Let us use $\gamma_1(t)=i+e^{it}$ with $t\in[0,2\pi]$, it has winding number 1. But if we wanted a path with winding number $n$, then we only need to follow the same path $n$ times.
+      \[\int_{n\gamma}f=n\int_{\gamma}f\tag{$\dagger$}\]
+      \begin{align*}
+        \int_{n_1\gamma_1}\frac{1}{z^2+1}dz&=\frac{in_1}{2}\int_\gamma\frac{1}{z+i}-\frac{1}{z-i}dz\tag{by $\dagger$}\\
+        &=\frac{in_1}{2}[\log(z+i)-\log(z-i)]_{\gamma_1}\\
+        &=\frac{in_1}{2}[\log(e^{it}+2i)-\log(e^{it})]_0^{2\pi}\\
+        &=\frac{in_1}{2}[\log(e^{i2\pi}+2i)-\log(e^0+2i)-\log(e^{i2\pi})+\log(e^0)]\\
+        &=\frac{in_1}{2}[-i2\pi]\\
+        &=n_1\pi
+      \end{align*}
+      Now we can let $\gamma_2(t)=e^{it}-i$ so it contains $-i$. If we want winding number $n_2$ then integrate along $n_2\gamma_2$. Using previous work:
+      \begin{align*}
+        \int_{n_2\gamma_2}\frac{1}{z^2+1}dz&=\frac{in_2}{2}[\log(z+i)-\log(z-i)]_{\gamma_2}\\
+        &=\frac{in_2}{2}[\log(e^{it})-\log(e^{it}-2i)]_0^{2\pi}\\
+        &=\frac{in_2}{2}[\log(e^{i2\pi})-\log(e^0)-\log(e^{i2\pi}-2i)+\log(e^0+2i)]\\
+        &=-n_2\pi
+      \end{align*}
+      Finally we can choose the path $\gamma_3$, which contains both points. Suppose that for this path $w(\gamma_3,i)=n_3$ and $w(\gamma_3,-i)=n_4$. Observe the sum \[w(n_3\gamma_1,i)+w(n_4\gamma_2,i)-w(\gamma_3,i)=0=w(n_3\gamma_1,-i)+w(n_4\gamma_2,-i)-w(\gamma_3,-i)\]
+      By theorem 8.9 we get the result
+      \begin{align*}
+        n_3\int_{\gamma_1}f+n_4\int_{\gamma_2}f-\int_{\gamma_3}f&=0\\
+        \implies\int_{\gamma_3}\frac{1}{z^2+1}dz=n_3\pi-n_4\pi&=(n_3-n_4)\pi
+      \end{align*}
+      Let's consider now the contour $\sigma(t)=t$ with $t\in[0,1]$.
+      \begin{align*}
+        \int_\sigma\frac{1}{z^2+1}dz&=\frac{i}{2}[\log(z+i)-\log(z-i)]_\sigma\\
+        &=\frac{i}{2}[\log(t+i)-\log(t-i)]_0^1\\
+        &=\frac{i}{2}[\log(1+i)-\log(1-i)-\log(i)+\log(-i)]\\
+        &=\frac{i}{2}[1/2\log(2)+i\pi/4-1/2\log(2)+i\pi/4-i\pi/2-i\pi/2]\\
+        &=\pi/4
+      \end{align*}
+    \item[7]
+      The inside of both $\gamma_1,\gamma_2$ is the same ring or donut.\\
+      \begin{align*}
+        \int_{\gamma_1}\frac{\cos(z)}{z}dz&=\int_{\gamma_1}\sum_{n=0}^\infty\frac{(-1)^nz^{2n-1}}{(2n)!}dz\\
+        &=\int_{\gamma_1}\frac{1}{z}+\sum_{n=0}^\infty\frac{(-1)^{n+1}z^{2n+1}}{(2n+2)!}dz\\
+        &=0+\left[\sum_{n=1}^\infty\frac{(-1)^{n}z^{2n}}{(2n)(2n)!}\right]_1^2-\left[\sum_{n=1}^\infty\frac{(-1)^{n}z^{2n}}{(2n)(2n)!}\right]_1^2=0
+      \end{align*}
+      Now we will use the other path to get:
+      \begin{align*}
+        \int_{\gamma_2}\frac{\cos(z)}{z}dz&=\int_{\gamma_2}\sum_{n=0}^\infty\frac{(-1)^nz^{2n-1}}{(2n)!}dz\\
+        &=\int_{\gamma_2}\frac{1}{z}+\sum_{n=0}^\infty\frac{(-1)^{n+1}z^{2n+1}}{(2n+2)!}dz\\
+        &=4i\pi+\left[\sum_{n=1}^\infty\frac{(-1)^{n}z^{2n}}{(2n)(2n)!}\right]_1^2-\left[\sum_{n=1}^\infty\frac{(-1)^{n}z^{2n}}{(2n)(2n)!}\right]_1^2\\
+        &=4i\pi
+      \end{align*}
+    \item[8]
+      We know that for each $S_r$ we get $w(S_r,z_r)=1$. If we want winding number $n_r$ we can change the contour to $n_rS_r$ which goes $n_r$ times along $S_r$. Now if we integrate along this path:
+      \begin{align*}
+        \int_{nS_r}f=n\int_{S_r}f\tag{$\dagger$}
+      \end{align*}
+      Suppose we choose $n_r$ such that
+      \[w(n_rS_r,z_r)=w(\gamma,z_r)\]
+      We know that $w(S_r,z_{j\neq r})=0$ because the circles are sufficiently small. Thus we can see that $\forall z_j\notin\C$ the sum
+      \[w(\gamma,z_j)-\sum_{r=1}^kw(n_rS_r,z_j)=0\]
+      Which would imply by Theorem 8.9 that
+      \[\int_\gamma f-\sum_{r=1}^k\int_{n_rS_r}f=0\]
+      Using $(\dagger)$ and some algebra we get the result
+      \[\int_\gamma f=\sum_{r=1}^kn_r\int_{S_r}f\]
+      Let us suppose that for $r=1,2,...,k$
+      \begin{align*}
+        &\lim_{z\to z_r}(z-z_r)f(z)=a_r\in\C\\
+        &\implies\lim_{z\to z_r}(z-z_r)f(z)\frac{1}{z-z_r}=a_r\lim_{z\to z_r}\frac{1}{z-z_r}\\
+        &\implies \lim_{z\to z_r}f(z)=a_r\lim_{z\to z_r}\frac{1}{z-z_r}
+      \end{align*}
+      Let us note the winding number of $S_r$
+      \begin{align*}
+        w(S_r,z_r)=\frac{1}{2\pi i}\int_{S_r}\frac{1}{z-z_r}dz\\
+        \implies 2\pi i=\int_{S_r}\frac{1}{z-z_r}dz
+      \end{align*}
+      We can then use this to compute the integral as $S_r$ shrinks
+      \begin{align*}
+        \lim_{z\to z_r}\int_{S_r}f(z)dz&=\lim_{z\to z_r}\int_{S_r}\frac{a_r}{z-z_r}dz\\
+        &=2\pi ia_r
+      \end{align*}
+      Giving us the result
+      \begin{align*}
+        \int_\gamma f=\sum_{r=1}^k2\pi in_ra_r
+      \end{align*}
+  \end{enumerate}
+  \section{10.9 Problems: 1, 3, 4, 5, 8}
+  \begin{enumerate}
+    \item
+      Let's find the first few terms of the sequence to get an idea of what it would come out to.
+      \begin{align*}
+        f(0)&=0\\
+        f'(z)&=\frac{1}{z+1}\\
+        f'(0)&=1\\
+        f''(z)&=\frac{-1}{(z+1)^2}\\
+        f''(z)&=-1\\
+        f^{(3)}(z)&=\frac{2}{(z+1)^3}\\
+        f^{(3)}(0)&=2\\
+        f^{(4)}(z)&=\frac{-6}{(z+1)^4}\\
+        f^{(4)}(0)&=-6
+      \end{align*}
+      I claim that
+      \begin{align*}
+        f(z)&=z-\frac{z^2}{2}+\frac{z^3}{3}-\frac{z^4}{4}+...+\frac{(-1)^{n-1}z^n}{n}+...\\
+        &=\sum_{n=1}^\infty \frac{(-1)^{n-1}z^n}{n}
+      \end{align*}
+      The disk of convergence is all $|z|\leq1$. For $g(z)$ we can simplify
+      \begin{align*}
+        g(z)&=\left(e^{\Log(z+1)}\right)^\alpha\\
+        &=(z+1)^\alpha\\
+        g(0)&=1\\
+        g'(z)&=\alpha(z+1)^{\alpha-1}\\
+        g'(0)&=\alpha\\
+        g''(z)&=\alpha(\alpha-1)(z+1)^{\alpha-2}\\
+        g''(0)&=\alpha(\alpha-1)\\
+        g^{(3)}(z)&=\alpha(\alpha-1)(\alpha-2)(z+1)^{\alpha-3}\\
+        g^{(3)}(0)&=\alpha(\alpha-1)(\alpha-2)\\
+        g^{(n)}(0)&=\prod_{i=0}^{n-1}(\alpha-i)
+      \end{align*}
+      Thus the series would be
+      \begin{align*}
+        g(z)&=1+\alpha x^2+\alpha(\alpha-1)\frac{x^2}{2!}+..+\frac{x^n}{n!}\prod_{i=0}^{n-1}(\alpha-i)\\
+        &=\sum_{n=0}^\infty\frac{x^n}{n!}\prod_{i=0}^{n-1}(\alpha-i)
+      \end{align*}
+      Now we will find the radius of convergence
+      \begin{align*}
+        \lim_{n\to\infty}\frac{|a_{n-1}|}{|a_n|}&=\lim_{n\to\infty}\frac{x^{n-1}n!\prod_{i=0}^{n-2}(\alpha-i)}{x^n(n-1)!\prod_{i=0}^{n-1}(\alpha-i)}\\
+        &=\lim_{n\to\infty}\frac{|n|}{|x(\alpha-n+1)|}\\
+        &=\lim_{n\to\infty}\frac{1}{|x\alpha/n-1+1/n|}\\
+        &=1
+      \end{align*}
+      Thus the disk of convergence is $z$ where $|z|<1$
+    \item[3]%Unfinished(v)(vi)
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          Looking at the first few terms
+          \begin{align*}
+            f(z)&=\sin^2(z)\\
+            f(0)&=0\\
+            f'(z)&=2\sin(z)\cos(z)\\
+            f'(0)&=0\\
+            f''(z)&=2\cos^2(z)-2\sin^2(z)\\
+            f''(0)&=2\\
+            f^{(3)}(z)&=-8\sin(z)\cos(z)=-4f'(z)\\
+            f^{(4)}(z)&=-4f''(z)\\
+            f^{(2n+1)}(0)&=0\\
+            f^{(2n)}(0)&=(-4)^{n-1}2
+          \end{align*}
+          We can then see that
+          \begin{align*}
+            \sin^2(z)&=2\frac{x^2}{2!}-8\frac{x^4}{4!}+32\frac{x^6}{6!}-128\frac{x^8}{8!}+...\\
+            &=\sum_{n=0}^\infty\frac{2(-4)^{n-1}x^{2n}}{(2n)!}
+          \end{align*}
+        \item
+          Looking at the first few terms
+          \begin{align*}
+            f(0)&=\frac{0^2}{(0+2)^{2}}=0\\
+            f'(z)&=4\frac{z}{(z+2)^3}\\
+            f'(0)&=0\\
+            f''(z)&=4(-2!)\frac{z-1}{(z+2)^4}\\
+            f''(0)&=1/2\\
+            f^{(3)}(z)&=4(3!)\frac{(z-2)}{(z+2)^5}\\
+            f^{(3)}(0)&=\frac{-3}{2}\\
+          \end{align*}
+           I claim that for $n\geq1$
+          \begin{align*}
+            f^{(n)}(z)&=4(-1)^{n+1}n!\frac{(z-n+1)}{(z+2)^{n+2}}\\
+            \implies f^{(n+1)}(z)&=4(-1)^{n+1}n!\frac{(z-n+1)'(z+2)^{n+2}-(z-n+1)((z+2)^{n+2})'}{(z+2)^{2n+4}}\\
+            &=4(-1)^{n+1}n!\frac{z+2-(z-n+1)(n+2)}{(z+2)^{n+3}}\\
+            &=4(-1)^{n+2}n!\frac{(1+n)z-n(n+1)}{(z+2)^{n+3}}\\
+            &=4(-1)^{n+2}(n+1)!\frac{z-n}{(z+2)^{n+3}}
+          \end{align*}
+          Thus we have:
+          \begin{align*}
+            f^{(n)}(0)=(-1)^{n}n!\frac{n-1}{(2)^{n}}
+          \end{align*}
+          So we get the sequence
+          \begin{align*}
+            f(z)=\sum_{n=0}^\infty(-1)^{n}\frac{(n-1)z^n}{2^n}
+          \end{align*}
+        \item
+          First we will compute several terms
+          \begin{align*}
+            f(0)&=\frac{1}{b}\\
+            f'(z)&=\frac{-a}{(az+b)^2}\\
+            f''(z)&=\frac{2a^2}{(az+b)^3}\\
+            f^{(n)}(z)&=\frac{(-1)^n(n!)a^n}{(az+b)^{n+1}}\\
+            f^{(n+1)}(z)&=\frac{(-1)^{n}(n!)a^n(-(n+1)a)}{(az+b)^{n+2}}\\
+            &=\frac{(-1)^{n+1}(n+1)!a^{n+1}}{(az+b)^{n+2}}
+          \end{align*}
+          Thus the zeros are:
+          \begin{align*}
+            f^{(n)}(0)&=\frac{(-1)^n(n!)a^n}{b^{n+1}}\\
+            f(z)&=\sum_{n=0}^\infty\frac{(-1)^na^nz^n}{b^{n+1}}
+          \end{align*}
+        \item
+          First few terms:
+          \begin{align*}
+            f(0)&=0\\
+            f'(z)&=e^{z^2}\\
+            f'(0)&=1\\
+            f''(z)&=2ze^{z^2}\\
+            f''(z)&=0\\
+            f^{(3)}(z)&=2(1+2z^2)e^{z^2}\\
+            f^{(3)}(0)&=2\\
+            f^{(4)}(z)&=4(3z+2z^3)e^{z^2}\\
+            f^{(4)}(0)&=0\\
+            f^{(5)}(z)&=4(3+12z^2+4z^4)e^{z^2}\\
+            f^{(5)}(0)&=12\\
+            f^{(2n+1)}(0)&=\frac{(2n)!}{n!}
+          \end{align*}
+          So
+          \begin{align*}
+            f(z)&=\sum_{n=0}^\infty\frac{z^{2n+1}}{(n!)(2n+1)}
+          \end{align*}
+        \item
+          First few terms:
+          \begin{align*}
+            f(0)&=1\\
+            f'(z)&=\sum_{n=1}^\infty\frac{(-1)^n(2n)z^{2n-1}}{(2n+1)!}\\
+            f''(z)&=\sum_{n=1}^\infty\frac{(-1)^n(2n)(2n-1)z^{2n-2}}{(2n+1)!}\\
+            f^{(3)}(z)&=\sum_{n=2}^\infty\frac{(-1)^n(2n)(2n-1)(2n-2)z^{2n-3}}{(2n+1)!}\\
+            f^{(4)}(z)&=\sum_{n=2}^\infty\frac{(-1)^n(2n)(2n-1)(2n-2)(2n-3)z^{2n-4}}{(2n+1)!}\\
+            f^{(2k)}(z)&=\sum_{n=k}^\infty\frac{(-1)^n(2n)!z^{2n-2k}}{(2n-2k)!(2n+1)!}\\
+            f^{(2k)}(0)&=\frac{(-1)^k(2k)!}{(2k+1)!}
+          \end{align*}
+          Thus we get the series:
+          \begin{align*}
+            f(z)&=\sum_{n=0}^\infty\frac{(-1)^n}{(2n+1)!}z^{2n}
+          \end{align*}
+        \item
+          I cannot figure this out
+      \end{enumerate}
+    \item[4]
+      We know that $\sec(z)=1/\cos(z)$ thus $\sec(z)\cos(z)=1$. So if we take the product of the power series:
+      \begin{align*}
+        \left(\sum_{n=0}^\infty\frac{(-1)^nc_{2n}z^{2n}}{(2n)!}\right)
+        \left(\sum_{n=0}^\infty(-1)^n\frac{z^{2n}}{(2n)!}\right)
+        &=\sum_{n=0}^\infty(-1)^nz^{2n}
+          \left(\sum_{i=0}^n\frac{c_{2i}}{(2n-2i)!(2i)!}\right)\\
+        &=c_0+\sum_{n=1}^\infty\frac{(-1)^nz^{2n}}{n!}
+          \left(\sum_{i=0}^n\binom{2n}{2i}c_{2i}\right)
+          =1\\
+        \implies& c_0=1\\
+        \implies& \sum_{i=0}^n\binom{2n}{2i}c_{2i}=0,\forall n\geq1
+      \end{align*}
+      Now we must show that $c_{2n}$ is an integer. By the series we know
+      \begin{align*}
+        \sum_{i=0}^1\binom{2n}{2i}c_{2i}&=0\\
+        c_0+\binom{2}{2}c_2&=0\\
+        c_2&=-1
+      \end{align*}
+      Now let's assume that $c_2n$ is an integer for $n\leq k$
+      \begin{align*}
+        \sum_{i=0}^{k+1}\binom{2k+2}{2i}c_{2i}&=c_{2k+2}+\sum_{i=0}^k\binom{2k+2}{2i}c_{2i}=0\\
+        \implies c_{2k+2}&=\sum_{i=0}^k(-1)\binom{2k+2}{2i}c_{2i}
+      \end{align*}
+      We know that the binomial coefficient is an integer and since we are just adding and multiplying integers to get $c_{2k+2}$ it must be an integer. Here are 5 terms of the sequence.
+      \begin{align*}
+        c_0&=1\\
+        c_2&=-1\\
+        c_4&=5\\
+        c_6&=-61\\
+        c_8&=1385\\
+        c_{10}&=-50521
+      \end{align*}
+    \item[5]
+      First we will do some algebra to make the derivatives simpler
+      \begin{align*}
+        \frac{1}{1-z-z^2}&=\frac{1}{(\sqrt{5}/2-z-1/2)(z+1/2+\sqrt{5}/2)}\\
+        &=\frac{1}{\sqrt{5}}\left(\frac{1}{\sqrt{5}/2-z-1/2}+\frac{1}{z+1/2+\sqrt{5}/2}\right)
+      \end{align*}
+      Now we take the derivatives
+      \begin{align*}
+        f(0)&=1\\
+        f'(z)&=\frac{1}{\sqrt{5}}\left(
+          \frac{1}{(\sqrt{5}/2-1/2-z)^{2}}+
+          \frac{(-1)^n}{(1/2+\sqrt{5}/2+z)^{2}}\right)\\
+        f'(0)&=1\\
+        f''(z)&=\frac{2!}{\sqrt{5}}\left(
+          \frac{1}{(\sqrt{5}/2-1/2-z)^{3}}+
+          \frac{(-1)^n}{(1/2+\sqrt{5}/2+z)^{3}}\right)\\
+        f''(0)&=2\cdot2\\
+        f^{(n)}(0)&=\frac{n!}{\sqrt{5}}\left(\left(\frac{\sqrt{5}+1}{2}\right)^{1+n}+\left(-1\right)^{n}\left(\frac{\sqrt{5}-1}{2}\right)^{1+n}\right)\\
+      \end{align*}
+      Thus we have the sequence.
+      \begin{align*}
+        f(z)&=\sum_{n=0}^\infty\frac{f^{(n)}(0)z^n}{n!}\\
+        &=\sum_{n=0}^\infty\frac{1}{\sqrt{5}}\left(\left(\frac{\sqrt{5}+1}{2}\right)^{1+n}+\left(-1\right)^{n}\left(\frac{\sqrt{5}-1}{2}\right)^{1+n}\right)z^n
+      \end{align*}
+      Thus
+      \[F_n=\frac{1}{\sqrt{5}}\left(\left(\frac{\sqrt{5}+1}{2}\right)^{1+n}+\left(-1\right)^{n}\left(\frac{\sqrt{5}-1}{2}\right)^{1+n}\right)\]
+      and you can clearly see from plugging in this formula for $F_n$ that $F_n=F_{n-1}+F_{n-2}$
+    \item[8]
+      Let us first rewrite $g(z)$ with power series:
+      \begin{align*}
+        g(z)&=\frac{1}{3}\left(\sum a_nz^n+\sum a_n\omega^nz^n+\sum a_n\omega^{2n}z^n\right)\\
+        &=\frac{1}{3}\left(\sum_{n=0}^\infty(1+\omega^n+\omega^{2n})a_nz^n\right)\\
+      \end{align*}
+      Let us show that $w^4=w$ and $w^3=1$
+      \begin{align*}
+        w^4&=e^{4\cdot2i\pi/3}=e^{8i\pi/3}=e^{2i\pi/3}=w\\
+        w^3&=e^{2i\pi3/3}=1
+      \end{align*}
+      Now we can take derivatives
+      \begin{align*}
+        g(0)&=a_0\\
+        g'(z)&=\frac{1}{3}\left(\sum_{n=1}^\infty(1+\omega^n+\omega^{2n})na_nz^{n-1}\right)\\
+        g'(0)&=\frac{1}{3}\left((1+\omega+\omega^{2})a_1\right)=0\\
+        g''(z)&=\frac{1}{3}\left(\sum_{n=2}^\infty(1+\omega^n+\omega^{2n})n(n-1)a_nz^{n-2}\right)\\
+        g''(0)&=\frac{1}{3}\left((1+\omega^2+\omega^{4})2a_2\right)=0\\
+        g^{(3)}(z)&=\frac{1}{3}\left(\sum_{n=3}^\infty(1+\omega^n+\omega^{2n})n(n-1)(n-2)a_nz^{n-3}\right)\\
+        g^{(3)}(0)&=\frac{1}{3}\left((1+\omega^3+\omega^{6})3!a_3\right)=3!a_3\\
+        g^{(k)}(z)&=\frac{1}{3}\left(\sum_{n=k}^\infty(1+\omega^n+\omega^{2n})\frac{n!a_nz^{n-k}}{(n-k)!}\right)\\
+        g^{(k)}(0)&=\frac{1}{3}\left((1+\omega^k+\omega^{2k})k!a_k\right)
+      \end{align*}
+      We can see that when $k$ is divisible by 3 we get $1/3(1+\omega^k+\omega^{2k})=1$. Otherwise
+      we get 0 because:
+      \[1+\omega^{3k+1}+\omega^{6k+2}=1+\omega\omega^{3k}+\omega^2\omega^{6k}=1+\omega+\omega^2=0\]
+      \[1+\omega^{3k+2}+\omega^{6k+4}=1+\omega^2\omega^{3k}+\omega^4\omega^{6k}=1+\omega^2+\omega=0\]
+      Thus we have $g^{(3n)}(0)=(3n)!a_{3n}$ so
+      \[g(z)=\sum_{n=0}^\infty a_{3n}z^{3n}\]
+      We can create the functions:
+      \begin{align*}
+        h_1(z)&=\frac{1}{3}\left(\sum_{n=0}^\infty(1+\omega^{n+2}+\omega^{2n+2})a_nz^n\right)=\sum_{n=0}^\infty a_{3n+1}z^{3n+1}\\
+        h_2(z)&=\frac{1}{3}\left(\sum_{n=0}^\infty(1+\omega^{n+1}+\omega^{2n+1})a_nz^n\right)=\sum_{n=0}^\infty a_{3n+2}z^{3n+2}
+      \end{align*}
+  \end{enumerate}
+\end{document}
