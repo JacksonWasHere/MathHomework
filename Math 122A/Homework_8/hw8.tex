@@ -8,19 +8,11 @@
 \begin{document}
   \begin{enumerate}
     \item[11]
-      Suppose that Cauchy's estimate is an equality. Let's create a disk around $z_0$ with radius $r>0$.
-      Using Cauchy's integral formula we get:
+      Suppose that Cauchy's estimate is an equality. Let's create a disk around the origin of radius $r>0$. We know that the maximum is either on a boundary or at a zero. Using Cauchy's estimate we get
       \begin{align*}
-        |f^{(n)}(z_0)|&=\frac{n!}{2\pi i}\left|\int_{C_r}\frac{f(z)}{(z-z_0)^{n+1}}dz\right|\\
-        &=\frac{n!}{2\pi i}\int_{C_r}\left|\frac{f(z)}{(z-z_0)^{n+1}}\right|dz\\
-        &=\frac{Mn!}{r^{n}}
+        |f^{(0)}(0)|=|f(0)|&=M(0!)/r^0=M
       \end{align*}
-      The second equality only holds if $\frac{f(z)}{(z-z_0)^{n+1}}$ has a constant argument. We can let $z=z_0+re^{it}$ and $dz=ire^{it}dt$. t therefore must be constant. giving us
-      \begin{align*}
-        \frac{n!}{2\pi}\int_{C_r}\left|\frac{f(z_0+re^{it})}{(re^{it})^{n}}\right|dt
-        &=\frac{n!}{2\pi}\int_{C_r}\frac{|f(z_0+re^{it})|}{r^{n}}dt\\
-        &=\frac{n!|f(z_0+re^{it})|}{r^n}
-      \end{align*}
+      This means that the origin is a maximum and thus a zero. So the maximum of the entire function must be 0. Thus $f(z)=0$
     \item[12]
       For the domain $D$ we have a fixed center $z_0$ and a radius $r$. $\partial D$ can be written as the path $\partial D(t)=z_0+re^{it}$ with $t\in[0,2\pi]$. If we integrate $f(\partial D(t))$ we get the sum of all $f(z)$ along the path so to get the average we can divide by the length of the path giving us:
       \[
