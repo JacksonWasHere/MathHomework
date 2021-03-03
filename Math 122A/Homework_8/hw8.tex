@@ -1,0 +1,72 @@
+\documentclass{article}
+
+\usepackage{jacksonmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+
+\begin{document}
+  \begin{enumerate}
+    \item[11]
+      Suppose that Cauchy's estimate is an equality. Let's create a disk around $z_0$ with radius $r>0$.
+      Using Cauchy's integral formula we get:
+      \begin{align*}
+        |f^{(n)}(z_0)|&=\frac{n!}{2\pi i}\left|\int_{C_r}\frac{f(z)}{(z-z_0)^{n+1}}dz\right|\\
+        &=\frac{n!}{2\pi i}\int_{C_r}\left|\frac{f(z)}{(z-z_0)^{n+1}}\right|dz\\
+        &=\frac{Mn!}{r^{n}}
+      \end{align*}
+      The second equality only holds if $\frac{f(z)}{(z-z_0)^{n+1}}$ has a constant argument. We can let $z=z_0+re^{it}$ and $dz=ire^{it}dt$. t therefore must be constant. giving us
+      \begin{align*}
+        \frac{n!}{2\pi}\int_{C_r}\left|\frac{f(z_0+re^{it})}{(re^{it})^{n}}\right|dt
+        &=\frac{n!}{2\pi}\int_{C_r}\frac{|f(z_0+re^{it})|}{r^{n}}dt\\
+        &=\frac{n!|f(z_0+re^{it})|}{r^n}
+      \end{align*}
+    \item[12]
+      For the domain $D$ we have a fixed center $z_0$ and a radius $r$. $\partial D$ can be written as the path $\partial D(t)=z_0+re^{it}$ with $t\in[0,2\pi]$. If we integrate $f(\partial D(t))$ we get the sum of all $f(z)$ along the path so to get the average we can divide by the length of the path giving us:
+      \[
+        \frac{1}{2\pi}\int_0^{2\pi}f(\partial D(t))dt=\frac{1}{2\pi}\int_0^{2\pi}f(z_0+re^{it})dt
+      \]
+      We can then do a substitution with $z=z_0+re^{it}$ and $dz=ire^{it}dt$.
+      \begin{align*}
+        \frac{1}{2\pi}\int_0^{2\pi}\frac{f(z)}{ire^{it}}dt&=\frac{1}{2i\pi}\int_0^{2\pi}\frac{f(z)}{re^{it}}dz\\
+        &=\frac{1}{2i\pi}\int_{\partial D}\frac{f(z)}{z-z_0}dz
+      \end{align*}
+      by Cauchy's integral formula we can see
+      \[\frac{1}{2i\pi}\int_{\partial D}\frac{f(z)}{z-z_0}dz=f(z_0)\]
+    \item[13]
+      Suppose we have a domain $D$ with radius $r>0$. The maximum would be $|f(z)|\leq Kr^c$. Then using Cauchy's estimate for $n=c$:
+      \begin{align*}
+        |f^{(c)}(z)|\leq\frac{Kr^c(c)!}{r^c}=Kc!
+      \end{align*}
+      This means that $f^{(c)}(z)=w$ and $w$ is constant. Let's find the antiderivative of $f^{(c)}(z)$, $c$ times:
+      \begin{align*}
+        f^{(c-1)}(z)&=wz+l_0\text{(l is a constant of integer)}\\
+        f^{(c-2)}(z_0)&=\frac{wz^2}{2!}+l_0z+l_1\\
+        f^{(c-(c-1))}(z_0)&=\frac{wz^{c-1}}{(c-1)!}+l_0\frac{z^{c-2}}{(c-2)!}+l_1\frac{z^{c-3}}{(c-3)!}+...\\
+        f(z_0)&=\frac{wz^{c}}{(c)!}+l_0\frac{z^{c-1}}{(c-1)!}+l_1\frac{z^{c-2}}{(c-2)!}+...
+      \end{align*}
+      This gives us a polynomial of degree $\leq c$
+    \item[14]
+      Let's consider the taylor expansion of $f,g$ centered at 0
+      \[
+        f(z)=\sum_{n=0}^\infty\frac{f^{(n)}(0)z^n}{n!}
+      \]\[
+        g(z)=\sum_{n=0}^\infty\frac{g^{(n)}(0)z^n}{n!}
+      \]
+      We also know that
+      \[f^{(n)}(0)=\frac{n!}{2i\pi}\left|\int_{C_r}\frac{f(z)}{(z-z_0)^{n+1}}dz\right|\]
+      if we choose a small enough $r$ that would mean
+      \begin{align*}
+        \frac{n!}{2i\pi}\left|\int_{C_r}\frac{f(z)}{(z-z_0)^{n+1}}dz\right|=\frac{n!}{2i\pi}\left|\int_{C_r}\frac{g(z)}{(z-z_0)^{n+1}}dz\right|
+      \end{align*}
+      Thus:
+      \begin{align*}
+        f^{(n)}(0)&=g^{(n)}(0)\\
+        \implies f(z)&=\sum_{n=0}^\infty\frac{f^{(n)}(0)z^n}{n!}\\
+        &=\sum_{n=0}^\infty\frac{g^{(n)}(0)z^n}{n!}\\
+        &=g(z)
+      \end{align*}
+    \item[15]
+
+  \end{enumerate}
+\end{document}
