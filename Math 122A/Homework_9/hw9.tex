@@ -1,0 +1,44 @@
+\documentclass{article}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+\usepackage{jacksonmath}
+
+\begin{document}
+  \begin{enumerate}
+    \item
+      Let us consider the function $g(z)=f(z)f(-z)$. If $z$ were to tend to zero from the positive direction then we would get
+      \begin{align*}
+        \lim_{z\to0^+}g(z)&=\lim_{z\to0^+}f(z)f(-z)\\
+        &\leq\lim_{z\to0^+}2\cdot3\\
+        &=6
+      \end{align*}
+      Obviously $g(0)=f(0)^2$ thus $|f(0)|\leq\sqrt{6}$
+    \item
+      Consider some $z=x+iy$, let us find the maximum and minimum of the function.
+      \[e^z=e^{x+iy}=e^xe^{iy}\]
+      We can then see that the modulus of the function is
+      \[\left|e^z\right|=\abs*{e^xe^{iy}}=e^x\]
+      This means that the maximum of the modulus is the rightmost point in the set. This must be on the boundary. If we had a right most point inside the boundary then we could simply move right until we reach the boundary. The minimum is when we have the greatest negative value of $x$. This must also be on the boundary by the same logic.
+    \item
+      First we shall factor to get
+      \[f(z)=z(z-1)\]
+      The modulus:
+      \[\abs*{z(z-1)}=\abs{z}\abs{z-1}\]
+      This would mean that the maximum is when both moduli are at a maximum. At all point on the boundary of the disk $|z|$ is a maximum. But only at the point farthest from 1 for $|z-1|$ to be at a maximum. Thus the point $z_0=-1$ and $|f(-1)|=|-1||-1-1|=2$. The minimum is 0 and this is at points $z_0=0,1$.
+    \item
+      Assume that the polynomial $p(z)$ is non constant and differentiable. Consider a closed disk $D$ with radius $r$ centered at the origin. By the maximum modulus theorem we know that if $|p(z_0)|\geq|p(z)|$ for all $z\in D$ then $z_0$ must be on the boundary. If we increase $r$ then $|z_0|=r$ will also increase. This means that as $|z_0|\to\infty$ then $|p(z_0)|\to\infty$. Hence we can choose some $r$ such that
+      \[\forall z\in\C-D,|p(z)|>\max_D|p|\]
+      The minimum then must be insides of $D$, which by the minimum modulus theorem means they are zeros.
+    \item
+      Consider the function $f(z)=1+z$, in a disk $D$ around the origin with radius $a$. We know that the maximum must be on the boundary because it is not constant. The modulus is
+      \[|f(z)|=\sqrt{(1+x)^2+y^2}\]
+      It must be that
+      \[y^2=a^2-x^2\]
+      so
+      \[\sqrt{(1+x)^2+a^2-x^2}=\sqrt{1+2x+a^2}\]
+      which is clearly a maximum when $x=a$.
+  \end{enumerate}
+\end{document}
