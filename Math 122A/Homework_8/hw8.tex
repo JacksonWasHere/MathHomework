@@ -8,11 +8,13 @@
 \begin{document}
   \begin{enumerate}
     \item[11]
-      Suppose that Cauchy's estimate is an equality. Let's create a disk around the origin of radius $r>0$. We know that the maximum is either on a boundary or at a zero. Using Cauchy's estimate we get
+      Suppose that Cauchy's estimate is an equality. Let's create a disk around the origin of radius $r>0$. Using Cauchy's estimate we get
       \begin{align*}
-        |f^{(0)}(0)|=|f(0)|&=M(0!)/r^0=M
+        |f^{(0)}(0)|=|f(0)|&=M
       \end{align*}
-      This means that the origin is a maximum and thus a zero. So the maximum of the entire function must be 0. Thus $f(z)=0$
+      This means that the origin is a maximum. Suppose we let $f(z)=Kz^n$ then in the disk $|f(z)|=|K||z^n|\leq M=|f(0)|$. But this gives us
+      \[|K|\leq\frac{|f(0)|}{|z^n|}\]
+      We can let the disk be arbitrarily large as well as $z$ thus $|K|\leq\frac{|f(0)|}{|z^n|}\to0$. So $f(z)=0$\qed
     \item[12]
       For the domain $D$ we have a fixed center $z_0$ and a radius $r$. $\partial D$ can be written as the path $\partial D(t)=z_0+re^{it}$ with $t\in[0,2\pi]$. If we integrate $f(\partial D(t))$ we get the sum of all $f(z)$ along the path so to get the average we can divide by the length of the path giving us:
       \[
@@ -24,7 +26,7 @@
         &=\frac{1}{2i\pi}\int_{\partial D}\frac{f(z)}{z-z_0}dz
       \end{align*}
       by Cauchy's integral formula we can see
-      \[\frac{1}{2i\pi}\int_{\partial D}\frac{f(z)}{z-z_0}dz=f(z_0)\]
+      \[\frac{1}{2i\pi}\int_{\partial D}\frac{f(z)}{z-z_0}dz=f(z_0)\]\qed
     \item[13]
       Suppose we have a domain $D$ with radius $r>0$. The maximum would be $|f(z)|\leq Kr^c$. Then using Cauchy's estimate for $n=c$:
       \begin{align*}
@@ -37,7 +39,7 @@
         f^{(c-(c-1))}(z_0)&=\frac{wz^{c-1}}{(c-1)!}+l_0\frac{z^{c-2}}{(c-2)!}+l_1\frac{z^{c-3}}{(c-3)!}+...\\
         f(z_0)&=\frac{wz^{c}}{(c)!}+l_0\frac{z^{c-1}}{(c-1)!}+l_1\frac{z^{c-2}}{(c-2)!}+...
       \end{align*}
-      This gives us a polynomial of degree $\leq c$
+      This gives us a polynomial of degree $\leq c$\qed
     \item[14]
       Let's consider the taylor expansion of $f,g$ centered at 0
       \[
@@ -57,8 +59,74 @@
         \implies f(z)&=\sum_{n=0}^\infty\frac{f^{(n)}(0)z^n}{n!}\\
         &=\sum_{n=0}^\infty\frac{g^{(n)}(0)z^n}{n!}\\
         &=g(z)
-      \end{align*}
+      \end{align*}\qed
     \item[15]
-
+      Suppose that $f(z)=\sum a_n(z-z_0)^n$ in a disk D center $z_0$ radius $R$. Assume $0\leq r<R$.
+      \begin{align*}
+        \frac{1}{2\pi}\int_{0}^{2\pi}\left|f(z_0+re^{i\theta})\right|^2d\theta
+        &=\frac{1}{2\pi}\int_{0}^{2\pi}
+          f(z_0+re^{i\theta})
+          \overline{f(z_0+re^{i\theta})}d\theta\\
+        &=\frac{1}{2\pi}\int_{0}^{2\pi}
+          \left(\sum_{n=0}^\infty a_nr^ne^{in\theta}\right)
+          \left(\sum_{n=0}^\infty \con{a_n}r^ne^{-in\theta}\right)d\theta\\
+        &=\frac{1}{2\pi}\int_{0}^{2\pi}
+          \sum_{n=0}^{\infty}\sum_{k=0}^{n}
+          (a_kr^ke^{ik\theta})(\con{a_{n-k}}r^{n-k}e^{-i(n-k)\theta})d\theta\\
+        &=\frac{1}{2\pi}
+          \sum_{n=0}^{\infty}\sum_{k=0}^{n}\int_{0}^{2\pi}
+          (a_{k}\con{a_{n-k}}r^ne^{i(2k-n)\theta})d\theta\\
+      \end{align*}
+      Let us consider different terms in this sequence. Suppose that $2k-n\neq0$, so the integral would be:
+      \begin{align*}
+        \left[a_{k}\con{a_{n-k}}r^n
+        \frac{e^{i(2k-n)\theta}}{i(2k-n)}\right]_{0}^{2\pi}=
+        a_{k}\con{a_{n-k}}r^n
+        \frac{e^{i(2k-n)2\pi}-e^{i(2k-n)}}{i(2k-n)}=0\\
+      \end{align*}
+      But if instead $2k-n=0$
+      \begin{align*}
+        \int_{0}^{2\pi}a_{k}\con{a_{n-k}}r^n
+        e^{i(2k-n)\theta}d\theta&=
+        \int_{0}^{2\pi}|a_k|^2r^nd\theta\\
+        &=2\pi|a_k|^2r^n
+      \end{align*}
+      Now let us see when each case occurs. When $n$ is even then
+      \[\sum_{k=0}^{n}\int_{0}^{2\pi}
+        (a_{k}\con{a_{n-k}}r^ne^{i(2k-n)\theta})d\theta=2\pi|a_{n/2}|^2r^n\]
+      if $n$ is odd then all terms become $0$.
+      Thus the series is
+      \[\sum_{n=0}^\infty|a_n|^2r^{2n}\]
+      We know that $|f(z_0+re^{i\theta})|^2\leq\sup_\theta|f(z_0+re^{i\theta})|$, so clearly
+      \begin{align*}
+        \sum_{n=0}^\infty|a_n|^2r^{2n}
+        &=\frac{1}{2\pi}\int_{0}^{2\pi}
+          \left|f(z_0+re^{i\theta})\right|^2d\theta\\
+        &\leq\frac{1}{2\pi}\int_{0}^{2\pi}
+          \sup_\theta\left|f(z_0+re^{i\theta})\right|^2d\theta\\
+        &=\sup_\theta\left|f(z_0+re^{i\theta})\right|^2\\
+      \end{align*}
+      Now let us assume that we have a local maximum $z_0=0$. We can create a disk around $z_0$ within the radius of convergence. We can see that $|f(0)|=|a_0|$ so
+      \begin{align*}
+        &\left|\sum a_nz^n\right|\leq|a_0|\\
+        &\implies \sum_{n=0}^\infty|a_n|^2r^{2n}=|a_0|^2+\sum_{n=1}^\infty|a_n|^2r^{2n}\leq|a_0|^2\\
+        &\implies
+        \sum_{n=1}^\infty|a_n|^2r^{2n}\leq0
+      \end{align*}
+      Thus the function must be constant.
+      \qed
+    \item[19]
+      Suppose that there exists some $z_0$ such that $f(z_0)=0$. Because $f(z)$ is differentiable in it's domain there is a Taylor expansion around $z_0$
+      \begin{align*}
+        \letv a_n&=\frac{f^{(n)}(z_0)}{n!}\\
+        f(z)&=\sum_{n=0}^\infty a_n(z-z_0)^n
+      \end{align*}
+      Suppose $f^{(m)}(z_0)\neq0$ thus we have
+      \begin{align*}
+        f(z)=(z-z_0)^m\sum_{n=0}^\infty a_{n+m}(z-z_0)^n
+      \end{align*}
+      then we know that the function is not identically zero. But if it is NOT of finite order then $\forall n\in\N,f^{(n)}(z_0)=0$. This would mean that $a_n=0$ which gives the sequence
+      \[f(z)=\sum_{n=0}^\infty 0\cdot z^n=0\]
+      So $f$ is identically 0.\qed
   \end{enumerate}
 \end{document}

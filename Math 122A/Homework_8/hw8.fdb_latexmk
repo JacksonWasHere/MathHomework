@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1614801199 "hw8.tex" "hw8.pdf" "hw8" 1614801200
+["pdflatex"] 1614912274 "hw8.tex" "hw8.pdf" "hw8" 1614912275
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -16,6 +16,7 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2019/texmf-dist/tex/generic/babel-english/english.ldf" 1496785618 7008 9ff5fdcc865b01beca2b0fe4a46231d4 ""
   "/usr/local/texlive/2019/texmf-dist/tex/generic/babel/babel.def" 1557004175 78303 c54368864528e704f6f347e670e631cd ""
@@ -73,10 +74,10 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "hw8.aux" 1614801200 30 00c4328e8c6c75fce40642ef2bcfb215 "pdflatex"
-  "hw8.tex" 1614801199 3051 3072085de61864f08780aef86fc8b009 ""
-  "jacksonmath.sty" 1614130364 1111 89af1ccbaa0c3746885432151015e7b1 ""
+  "hw8.aux" 1614912275 30 00c4328e8c6c75fce40642ef2bcfb215 "pdflatex"
+  "hw8.tex" 1614912273 6433 620b31fb603823a8a5c05c432e4a8d86 ""
+  "jacksonmath.sty" 1614897999 1147 62471a85aea17a362d28e6b145a40e0a ""
   (generated)
-  "hw8.aux"
   "hw8.pdf"
+  "hw8.aux"
   "hw8.log"
