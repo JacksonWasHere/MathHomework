@@ -7,6 +7,7 @@
 \usepackage{jacksonmath}
 
 \begin{document}
+  \section{Worksheet Problems:}
   \begin{enumerate}
     \item
       Let us consider the function $g(z)=f(z)f(-z)$. If $z$ were to tend to zero from the positive direction then we would get
@@ -32,7 +33,7 @@
       Assume that the polynomial $p(z)$ is non constant and differentiable. Consider a closed disk $D$ with radius $r$ centered at the origin. By the maximum modulus theorem we know that if $|p(z_0)|\geq|p(z)|$ for all $z\in D$ then $z_0$ must be on the boundary. If we increase $r$ then $|z_0|=r$ will also increase. This means that as $|z_0|\to\infty$ then $|p(z_0)|\to\infty$. Hence we can choose some $r$ such that
       \[\forall z\in\C-D,|p(z)|>\max_D|p|\]
       The minimum then must be insides of $D$, which by the minimum modulus theorem means they are zeros.
-    \item
+    \item[17]
       Consider the function $f(z)=1+z$, in a disk $D$ around the origin with radius $a$. We know that the maximum must be on the boundary because it is not constant. The modulus is
       \[|f(z)|=\sqrt{(1+x)^2+y^2}\]
       It must be that
@@ -40,5 +41,146 @@
       so
       \[\sqrt{(1+x)^2+a^2-x^2}=\sqrt{1+2x+a^2}\]
       which is clearly a maximum when $x=a$.
+  \end{enumerate}
+  \section{Chapter 11 Problems:}
+  \begin{enumerate}
+    \item
+      \begin{enumerate}[label=(\roman*)]
+        \item$f(z)=(z-3)^{-1}$\\
+          Let us first rewrite
+          \[\frac{1}{-3}\cdot\frac{1}{1-z/3}\]
+          By the binomial expansion we get the result
+          \[\frac{1}{3}\sum_{n=0}^\infty\left(\frac{x}{3}\right)^n\]
+          in the annulus $0<|z|<3$
+        \item$f(z)=(z-a)^{-k}$\\
+          Let us rewrite this as
+          \[\frac{1}{(-a)^k(1-z/a)^k}\]
+          we can then use the binomial series
+          \begin{align*}
+            \frac{1}{(-a)^k}(1-z/a)^{-k}=
+            (-1)^{k}\sum_{n=0}^\infty
+              \binom{k+n-1}{n}\left(\frac{z^n}{a^{k+n}}\right)
+          \end{align*}
+          Giving us the series
+          in the annulus $0<|z|<a$
+        \item
+          We will partial fraction
+          \[\frac{1}{z(1-z)}=\frac{1}{z}+\frac{1}{1-z}\]
+          Then we can use the binomial expansion
+          \[\frac{1}{z}+\sum_{n=0}^\infty z^n\]
+          The annulus is $0<|z|<1$
+        \item
+          Again we can use partial fractions.
+          \[\frac{1}{(z-a)(z-b)}=\frac{1}{z(a-b)(1-a/z)}+\frac{1}{(ab-b^2)(1-z/b)}\]
+          Let us note that either $|a|\leq|b|$ or $|b|\leq|a|$, both cases would be identical so we will assume $|a|\leq|b|$. Then we will use the binomial expansion.
+          \begin{align*}
+            \frac{1}{z(a-b)(1-a/z)}
+            &=\frac{1}{(a-b)}\sum_{n=0}^\infty\left(\frac{a^n}{z^{n+1}}\right)\\
+            \frac{1}{(ab-b^2)(1-z/b)}
+            &=\frac{1}{ab-b^2}\sum_{n=0}^\infty\left(\frac{z}{b}\right)^n
+            f(z)&=\frac{1}{(a-b)}\sum_{n=0}^\infty
+              \left(\frac{a^n}{z^{n+1}}\right)
+            +\frac{1}{ab-b^2}\sum_{n=0}^\infty
+              \left(\frac{z}{b}\right)^n
+          \end{align*}
+          and this is valid in the annulus $|a|<|z|<|b|$
+        \item
+          It is known that $e^{1/z}$ has the power series
+          \[\sum_{n=0}^\infty\frac{1}{n!}z^{-n}\]
+          so we can easily obtain
+          \[\sum_{n=0}^\infty\frac{1}{n!}z^{3-n}=z^3+z^2+\frac{1}{2}z+\sum_{n=0}^\infty\frac{1}{(n+3)!}z^{-n}\]
+          Which converges on the annulus $z\neq0$
+        \item
+          We can put $z+1/z$ into the series for $e^z$ and use the binomial expansion.
+          \begin{align*}
+            \sum_{k=0}^\infty\frac{(z+1/z)^k}{k!}
+            &=\sum_{k=0}^\infty\frac{1}{k!}\left(\sum_{n=0}^k
+              \binom{k}{n}z^{2n-k}\right)\\
+          \end{align*}
+          We can now try to find the coefficients of negative powers with this series. Consider when $2n-k=a$ and try to find the coefficient for $z^{a}$.
+          \begin{align*}
+            2n-k=a&\implies k=2n-a\\
+            \frac{1}{k!}\binom{k}{n}z^{2n-k}&\implies\frac{1}{(2n-a)!}\binom{2n-a}{n}z^{a}\\
+            &\implies e^{z+1/z}\sum_{a=-\infty}^\infty\sum_{n=0}^\infty\frac{z^a}{(2n-a)!}\binom{2n-a}{n}
+          \end{align*}
+          and $0<|z|$
+        \item
+          We will use the regular series for $\cos(z)$ but use $1/z$.
+          \[\sum_{n=0}^\infty\frac{(-1)^nz^{-2n}}{(2n)!}\]
+          The annulus would be $0<|z|$
+        \item
+          Similarly to $e^{1/z}$ we will put $z^{-5}$ into the expansion of $e^z$,
+          \[\sum_{n=0}^\infty\frac{z^{-5n}}{n!}\]
+          This also has annulus $0<|z|$
+      \end{enumerate}
+    \item
+      \begin{enumerate}[label=(\roman*)]
+        \item
+          We will first use partial fractions
+          \[\frac{1}{(z-1)^2(z-2)}=\frac{-3z}{(z-1)^2}+\frac{4}{(z-1)^2}+\frac{2}{z-2}\]
+          From 11.7.1(ii)
+          \begin{align*}
+            \frac{-3z}{(z-1)^2}&=-3\sum_{n=0}^\infty (n+1)z^{n+1}\\
+            \frac{4}{(z-1)^2}&=4\sum_{n=0}^\infty (n+1)z^n\\
+            \frac{2}{z-2}&=-\sum_{n=0}^\infty\frac{z^n}{2^{n+1}}\\
+            f(z)&=\sum_{n=0}^\infty (n+4-2^{-n-1})z^n
+          \end{align*}
+        \item
+          Similarly to (i)
+          \[\frac{1}{(z-1)^2(z-2)}=\frac{-3z}{(z-1)^2}+\frac{4}{(z-1)^2}+\frac{2}{z-2}\]
+          The first two series must change slightly
+          \begin{align*}
+            \frac{-3z}{z^2(1-1/z)^2}
+            &=-3\sum_{n=0}^\infty(n+1)\frac{2^n}{z^{n+1}}\\
+            \frac{4}{z^2(1-1/z)^2}
+            &=4\sum_{n=0}^\infty(n+1)\frac{2^n}{z^{n+2}}\\
+            \frac{2}{z-2}
+            &=-\sum_{n=0}^\infty\frac{z^n}{2^{n+1}}\\
+            f(z)&=\sum_{n=0}^\infty(n2^{n+1}-3(n+1)2^n)z^{-n-1}-\sum_{n=0}^\infty\frac{z^n}{2^{n+1}}
+          \end{align*}
+        \item
+          Similarly to (i) and (ii)
+          \[\frac{1}{(z-1)^2(z-2)}=\frac{-3z}{(z-1)^2}+\frac{4}{(z-1)^2}+\frac{2}{z-2}\]
+          The first two series must change slightly
+          \begin{align*}
+            \frac{-3z}{z^2(1-1/z)^2}
+            &=-3\sum_{n=0}^\infty(n+1)\frac{2^n}{z^{n+1}}\\
+            \frac{4}{z^2(1-1/z)^2}
+            &=4\sum_{n=0}^\infty(n+1)\frac{2^n}{z^{n+2}}\\
+            \frac{2}{2(1-2/z)}
+            &=\sum_{n=0}^\infty\frac{2^{n+1}}{z^{n+1}}\\
+            f(z)&=\sum_{n=0}^\infty((n+1)2^{n+1}-3(n+1)2^n)z^{-n-1}
+          \end{align*}
+        \item
+          We can use the series for $e^z$.
+          \begin{align*}
+            e^{-z^{-2}}=\sum_{n=0}^\infty\frac{(-1)^nz^{-2n}}{n!}
+          \end{align*}
+        \item
+          Consider the disk $0<|z-1|<1+(1-\sqrt5)/2$. We can factor to get
+          \[\frac{1}{(1-z-z^2)}=\frac{1}{(\frac{\sqrt{5}-1}{2}-z)(\frac{\sqrt{5}+1}{2}+z)}\]
+          We can then split this with partial fractioning
+          \[\frac{1/\sqrt{5}}{(\frac{\sqrt{5}-1}{2}-z)}
+           +\frac{1/\sqrt{5}}{(\frac{\sqrt{5}+1}{2}+z)}\]
+          We can try to find a series of $z-1$ (whatever that means) for each of these fractions.
+        \item
+          Using partial fractions we get
+          \begin{align*}
+            \frac{1}{(1+z^2)}=\frac{1}{(z-i)(z+i)}=\frac{i/2}{(i+z)}+\frac{i/2}{(i-z)}
+          \end{align*}
+          We can find the series for each of these
+          \begin{align*}
+            \frac{1/2}{(1-zi)}&=\frac{1}{2}\sum_{n=0}^\infty i^nz^n\\
+            \frac{1/2}{1+iz}&=\frac{1}{2}\sum_{n=0}^\infty i^{-n}z^n\\
+            e^z&=\sum_{n=0}^\infty\frac{z^n}{n!}
+          \end{align*}
+          Now we must find
+          \begin{align*}
+            e^z/(1+z^2)&=\frac{1}{2}\left(\sum_{n=0}^\infty\frac{z^n}{n!}\right)
+              \left(\sum_{n=0}^\infty (i^n+i^{-n})z^n\right)\\
+            &=\frac{1}{2}\left(\sum_{n=0}^\infty z^n
+              \sum_{k=0}^n\frac{i^k+i^{-k}}{(n-k)!}\right)
+          \end{align*}
+      \end{enumerate}
   \end{enumerate}
 \end{document}
