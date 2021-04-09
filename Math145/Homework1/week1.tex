@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+\usepackage{jacksonmath}
+
+\begin{document}
+  \section{Problems 2, 4, 6, 7, 8}
+  \begin{enumerate}
+    \item[2]
+      Let us consider the discrete metric on a set $X$, for each $x,y$ in $X$:
+      \begin{align*}
+        d(x,y)=\begin{cases} 1,&x=y\\0,&x\neq y \end{cases}
+      \end{align*}
+      The first three axioms follow immediately from the definition. Now suppose we have 3 points x,y,z that are in $X$. If $x=z$ then
+      \begin{align*}
+        d(x,z)=0\leq d(x,y)+d(y,z)
+      \end{align*}
+      The righthand side is always $\geq0$ by definition. If $x\neq z$ then $d(x,z)=1$. The point $y$ is equal to either one or neither of $x,z$.
+      \begin{align*}
+        d(x,y)+d(y,z)=\begin{cases} 0,&x\neq y\neq z\\
+        1, &x=y\\
+        1, &y=z \end{cases}\geq1=d(x,z)
+      \end{align*}
+      An open ball in this space is
+      \begin{align*}
+        B(x,r)=\{y\in X: d(x,y)<r\}
+      \end{align*}
+      But what if $r=1$? Then $B(x,1)=\{x\}$. If we create a set $S$ and take some element $x$ then $B(x,1)\subset S$ so it is open. Consider the complement of $S$, it is a subset of $X$ so it is open thus $S$ is closed.
+    \item[4]
+      Let us consider the interval (0,1]. The point 1 is in this interval but it is not an interior point, so it is not open. The point 0 is not in this set but it also is an adherent point, so it is not closed.
+    \item[6]
+      We need it to be the case that $int(Y)=\bigcup S_i$ and each open $S_i\subset Y$. If we take any $x\in S_i$, we know there exist $\epsilon>0$ where $B(x,\epsilon)\subset S_i$, because it is open. Hence $B(x,\epsilon)\subset int(Y)$ and $x\in int(Y)$. So $\bigcup S_i\subset int(Y)$.\\
+      Let us now take some $x\in int(Y)$, which has an open ball $B(x,\epsilon)\subset int(Y)$. An open set and hence in $\bigcup S_i$. Thus they are equal.
+    \item[7]
+      By definition we know that $Y\subset\cap S_i$, each subset is closed so all points adherent to Y are adherent to a set in the union. So the closure is a subset of the union. For a contradiction let's assume that there is some $s\in\cap S_i$ where $s$ is not adherent to Y. So for some $\epsilon>0$ we get $B(s,\epsilon)\cap Y=\emptyset$. Then we can create a closed set in X (most notable the closure of Y) that contains $Y$ and does not contain $s$, hence it cannot be in the union. A contradiction so $\cap S_i=\overline{Y}$.
+    \item[8]
+      Take some open ball $B(x,r)$ and some adherent point $y$. If $d(x,y)>r$ then we can create $B(y,d(x,y)-r)\cap B(x,r)=\emptyset$. So we know that if a point is adherent to $y$ then $d(x,y)\leq r$, the definition of a closed ball. 
+  \end{enumerate}
+\end{document}

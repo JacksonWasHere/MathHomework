@@ -1,0 +1,38 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{jacksonmath}[2021/01/05a Provides commands I made]
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{etoolbox}
+\RequirePackage{mathtools}
+\RequirePackage{fancyhdr}
+\RequirePackage{enumerate}
+\RequirePackage{enumitem}
+
+\newcommand{\qed}{\\$\Q.\mathbb{E}.\mathbb{D}.$}
+\newcommand{\vc}{\vec{v}}
+\newcommand{\wc}{\vec{w}}
+\newcommand{\sq}{\sqrt{2}}
+\newcommand{\letv}{\text{Let }}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\re}[1]{\:\text{re}(#1)}
+\newcommand{\im}[1]{\text{im}(#1)}
+\newcommand{\linin}{linearly independent}
+\newcommand{\linde}{linearly dependent}
+\newcommand{\diff}[3][]{\frac{d^{#1}#2}{d#3^{#1}}}
+\newcommand{\pdiff}[3][]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+\newcommand{\st}{\text{ such that }}
+\newcommand\stacksym[2]{\stackrel{\mathclap{\normalfont\mbox{#2}}}{#1}}
+\newcommand{\Log}{\text{Log}}
+\newcommand{\con}[1]{\overline{#1}}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\pagestyle{fancy}
+\rhead{Jackson Weidmann}
+\lhead{Math 122A Homework}

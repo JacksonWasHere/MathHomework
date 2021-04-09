@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+
+\usepackage{jacksonmath}
+
+\begin{document}
+  \section{Monday  4/5/2021}
+  $\R$ is a totally ordered field satisfying the least upper bound axiom. $\R$ is complete. A Cauchy sequence is a sequence $ \{x_j\}_{j=1}^\infty$ such that
+  \begin{align*}
+    \lim_{n,m\to\infty}d(x_n,x_m)\to0
+  \end{align*}
+
+  It is a sequence of points that crowd together and a complete metric space is one where every Cauchy sequence is convergent. The completeness axiom is that the real numbers have this property (this is the basis for $\epsilon-\delta$ proofs). If the space is incomplete then cauchy sequences will not have limits and there will be `holes` in the space. In \Q there is not always a limit of a cauchy sequence.\par
+  A field has \{+,-,/,x\}, you also have identity elements such as 0 and 1. There are many examples of fields. A vector space requires a field, rational numbers are a field. The set of all functions can be a field. Obviously the real numbers. The complex numbers are a cool field as well.\par
+  \R has the operation $\leq$ which provides total order on the set. $\forall x,y$
+  \begin{align*}
+    x\leq y\text{ or }y\leq x\\
+    x\leq y\leq x\implies x=y\\
+    x\leq y\leq z\implies x\leq z
+  \end{align*}
+  Addition and multiplication both work over the inequality.\par
+  The Least Upper Bound Axiom: if $S$ is a subset of \R\:and $S\neq\emptyset$ and $\exists x\in \R, \forall s\in S, x\geq s$ then there is a supremum of $S$. $\sup S\in \bar{S}$.\par
+  $\R^n$ always has the usual metric. \begin{theorem}
+    Every convergent series is cauchy.
+  \end{theorem}
+  Let $\epsilon>0$ and $N$ be such that $\forall n>N,d(x_n,x)< \frac{\epsilon}{2}$. Everything starts to get close to $x$ as we get farther.
+  \begin{align*}
+    \forall n,m>N, d(x_n,x_m)\leq d(x_n,x)+d(x,x_m)\leq \epsilon
+  \end{align*}
+  \qed
+  \begin{theorem}
+    If a cauchy sequence has a convergent subsequence then it is convergent.
+  \end{theorem}
+  $\{x_j\}_{j=1}^\infty$ is a cauchy sequence. $\{x_{j_k}\}_{k=1}^\infty$ converges to $x$. Where the indexes are increasing. Suppose that $\epsilon>0$ and let $N$ be such that $\forall k>N$ we have $d(x_{j_k},x)< \frac{\epsilon}{2}$. Let $M$ be such that $\forall k,l>M$ then $d(x_k,x_l)<\frac{\epsilon}{2}$. Let $K$ be $max(M,j_N)$. Suppose $k>K$, we want $d(x_k,x)<\epsilon$. Pick $x_l>k$ then $d(x_{j_l},x)<\frac{\epsilon}{2}$. $d(x_k,x_{j_l})<\frac{\epsilon}{2}$ by choice of M from cauchyness. SO $d(x_k,x)\leq d(x_k,x_{j_l})+d(x_{j_l},x)<\epsilon$\qed
+  \begin{theorem}
+    A closed subset of a complete metric space is complete.
+  \end{theorem}
+  Say $X$ is complete, $A\subseteq X$, A is closed. `Sequential` definition of closed. If $\{a_1,a_2,...,a_{n}\}$ is a sequence of points in $A$, convergent in X $\implies$ convergent in A. If $\{a_1,a_2,...,a_{n}\}$ is Cauchy then it converges in X and hence in A. (Cauchy does not depend on what space that you are in, just the distance between the points matters).\qed
+  \begin{theorem}
+  If A is a complete subspace of any metric space X then A is closed. \end{theorem}
+  Use the Sequential definition of closed. Suppose that $\{a_1,a_2,...,a_{n}\}$ is a sequence in A and converges to $x\in X$. Goal is $x\in A$. $\{a_1,a_2,...,a_{n}\}$ is convergent in X $\implies$Cauchy $\implies$convergent in A. Convergent to $a\in A$. Limits are unique so $x=a\in A$.\qed
+  S is a set and X is a complete metric space \{function S$\to$X\} can be turned into a complete metric space. Each `point` is a function.
+  \section{Wednesday 4/7/21}
+  \begin{theorem} Baire Category Theorem. In a complete metric space X, any intersection of countably many dense open sets is dense \end{theorem}
+  (U is dense iff $\overline{u}$=x, open sets are `big`) $\Q\subseteq\R$ is dense not open. First we are going to look at some equivalent statements. In a complete metric space X, any intersection of countably many nowhere dense sets has empty interior. \textbf{nowhere dense} iff $int(\overline{E})=\emptyset$. Compare Cantors famous fact that $[0,1]\neq\{e_1,e_2,...,e_{n}\}$ (not countable) and $E_i=e_i$. We want $x\in[0,1]\ \cup E_i$. X is a decimal using only two digits, say 1 and 3 (arbitrary). eg $x=0.11313131313131$ such that nth digit of x $\neq$ nth digit of $e_n$.\\
+  \textbf{Proof 2} more similar to general Baire Categroy Theorem. Contrust closed balls `converging` to $0.131331$. Nested
+  \begin{align*}
+    B_1\supseteq B_2\supseteq B_3\supseteq ...\\
+    B_n\cap E_n=\emptyset\\
+  \end{align*}
+  The diameters go to 0. We know the intersection is a single of x. and $x\in B_n\implies x\notin E_n$. A nowhere dense set in 2D space is a line and you cannot fill in the plane with a countable set of lines.\\
+  \subsection{Products}
+  There are three popular ways to put a metric on $X\times Y=\{(x,y):x\in X, y\in Y\}$. We can construct a metric $d_{X\times Y}((x,y),(x',y'))$.
+  \begin{align*}
+    d((x,y),(x',y'))&=\sqrt{d_X(x,x')^2+d_Y(y,y')^2}\\
+    d((x,y),(x',y'))&=d_X(x,x')+d_Y(y,y')\\
+    d((x,y),(x',y'))&=\max(d_X(x,x'),d_Y(y,y'))
+  \end{align*}
+  Whatever metric is chosen needs to satisfy the axioms of a metric space. The triangle inequality is often the most difficult to prove.\\
+  Now let's look at $\R\times\R$ with these 3 metrics. what do the open balls look like?
+  \begin{itemize}
+    \item Pythagoras:\\
+    We will just get a classic open ball centered around the point.
+    \item Max Metric:\\
+    This will give us a square of side length r.
+    \item Manhatten Metric:\\
+    This will give us a diamond shape where the distance from the center to a vertex is r.
+  \end{itemize}
+  \textbf{Property 4.4} A sequence $\{(x_1,y_1),(x_2,y_2),...,(x_n,y_n)\}$ that converges to $(x,y)$ iff $x_n\to x$ in X and $y_n\to y$ in Y.
+  \section{Friday 4/9/2021}
+  
+\end{document}
